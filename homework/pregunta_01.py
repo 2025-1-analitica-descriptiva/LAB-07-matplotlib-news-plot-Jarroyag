@@ -6,6 +6,7 @@ Escriba el codigo que ejecute la accion solicitada en cada pregunta.
 
 import pandas as pd 
 import matplotlib.pyplot as plt
+import os
 
 def pregunta_01():
     """
@@ -92,15 +93,13 @@ def pregunta_01():
             ha='center',
         )
 
-        #El gráfico debe salvarse al archivo `files/plots/news.png`.
-        plt.tight_layout()
-    plt.savefig('files/plots/news.png')
-     
+    output_dir = "files/plots"
+    os.makedirs(output_dir, exist_ok=True)
 
-        
-# Ejecutar la función para generar el gráfico
-if __name__ == "__main__":
-    # Ejecutar la función para generar el gráfico
-    pregunta_01()
+
+    plt.savefig(os.path.join(output_dir, "news.png"))
+    plt.close()
+
+pregunta_01()
     
 
